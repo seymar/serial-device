@@ -9,10 +9,13 @@
   "keywords": [
     "serial"
   ],
-  "dependencies": {},
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/seymar/serial-device"
+  "dependencies": {
+    "serialport": "^4.0.6",
+    "usb": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seymar/serial-device"
   },
   "author": "Stijn Martens",
   "license": "ISC"

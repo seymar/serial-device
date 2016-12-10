@@ -1,7 +1,7 @@
 var SerialDevice = require('./serial-device.js');
-var leds = new SerialDevice({
+var device = new SerialDevice({
   comName: '/dev/cu.usbmodem969601',
   serialOptions: {
-    baudrate: 921600
+    baudrate: 9600
   }
 });
