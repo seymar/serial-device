@@ -6,6 +6,7 @@ A node module build on top of [serialport](http://npmjs.org/package/serialport) 
 
 ## Example
 ```javascript
+var SerialDevice = require('serialdevice');
 var hub = new SerialDevice({
   comName: '/dev/cu.usbmodem12341',
   serialOptions: { // Options passed to serialport module
@@ -18,3 +19,6 @@ hub.on('line', function(line) {
 }
 hub.send(new Buffer('data\n'));
 ```
+
+# Installation
+`npm install serial-device`
