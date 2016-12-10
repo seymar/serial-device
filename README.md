@@ -20,5 +20,5 @@ hub.on('line', function(line) {
 hub.send(new Buffer('data\n'));
 ```
 
-# Installation
+## Installation
 `npm install serial-device`
