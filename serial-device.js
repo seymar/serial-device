@@ -1,7 +1,7 @@
 (function(module) {
   var EventEmitter = require('events').EventEmitter;
   var SerialPort = require('serialport');
-  var usb = require('usb');
+  var usbDetect = require('usb-detection');
 
   var SerialDevice = function(options) {
     EventEmitter.call(this);
@@ -9,15 +9,15 @@
     this.serialOptions = options.serialOptions;
 
     // Parsing
-    this.delimiter = options.delimiter || '\n'; // Line end
+    this.lineEnding = options.lineEnding || '\n'; // Line end
     this.receivedData = '';
 
     this.SerialPort;
     this.openPort();
 
-    usb.on('attach', function(device) {
-      if(this.SerialPort.isOpen()) return false;
-      this.openPort();
+    usbDetect.on('add', function(device) {
+      console.log('USB device plugged in: ', device);
+      if(!this.SerialPort.isOpen()) this.openPort();
     }.bind(this));
   }
     SerialDevice.prototype = Object.create(EventEmitter.prototype);
@@ -36,7 +36,7 @@
 
         // Line parsing
         for(var i = 0; i < data.length; i++) {
-          if(data[i] == _self.delimiter) {
+          if(data[i] == _self.lineEnding) {
             _self.emit('line', _self.receivedData.trim());
             _self.receivedData = '';
           } else {
