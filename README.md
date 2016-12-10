@@ -1,6 +1,6 @@
 # serial-device
 
-A node module build on top of (serialport)[http://npmjs.org/package/serialport] adding some handy features like:
+A node module build on top of [serialport](http://npmjs.org/package/serialport) adding some handy features like:
  * Auto re-open when a device is plugged in
  * Event firing when a new line is received
 
@@ -16,4 +16,5 @@ var hub = new SerialDevice({
 hub.on('line', function(line) {
 	console.log(line);
 }
+hub.send(new Buffer('data\n'));
 ```
