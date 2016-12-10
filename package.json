@@ -1,0 +1,19 @@
+{
+  "name": "serial-device",
+  "version": "0.0.1",
+  "description": "Easy constructor to connect to a device through a serial port",
+  "main": "serial-device.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "serial"
+  ],
+  "dependencies": {},
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/seymar/serial-device"
+  },
+  "author": "Stijn Martens",
+  "license": "ISC"
+}
